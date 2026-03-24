@@ -2,65 +2,62 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام الإشتراك الذكي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>نظام التوقيع الرقمي - فاروق زغدي</title>
     <style>
-        body {
+        /* إعدادات الصفحة الأساسية لمنع التمرير وتغطية الشاشة */
+        body, html {
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f2f5;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #ffffff;
+            font-family: sans-serif;
         }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
+
+        /* حاوية الإطار لضمان التنسيق */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
-        .icon {
-            font-size: 50px;
-            color: #6a1b9a;
-            margin-bottom: 20px;
-        }
-        h2 { color: #333; margin-bottom: 10px; }
-        p { color: #666; margin-bottom: 25px; line-height: 1.6; }
-        
-        .btn-launch {
-            background-color: #6a1b9a;
-            color: white;
+
+        /* تنسيق الإطار (Iframe) ليملأ الحاوية */
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.3s;
+            /* تحسين استجابة اللمس على الهواتف */
+            touch-action: none; 
         }
-        .btn-launch:hover {
-            background-color: #4a148c;
+
+        /* رسالة تحميل بسيطة تظهر خلف السكريبت */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #6a1b9a;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <div class="icon">✍️</div>
-    <h2>نظام التوقيع الرقمي</h2>
-    <p>لضمان الأمان وتفعيل الكاميرا بشكل صحيح، يرجى الضغط على الزر أدناه لفتح واجهة التوقيع.</p>
-    
-    <a href="https://script.google.com/macros/s/AKfycbywgNlocVmrtJog7qEtOCp3IhbF-oWclUFeQmbyOQORFZ_iEazX8IVrwf9xctM1q41E/exec" 
-       target="_blank" 
-       class="btn-launch">
-        فتح نظام التوقيع الآن
-    </a>
-</div>
+    <div class="container">
+        <div class="loading">جاري تحميل نظام التوقيع...</div>
+        
+        <iframe 
+            src="https://script.google.com/macros/s/AKfycbywgNlocVmrtJog7qEtOCp3IhbF-oWclUFeQmbyOQORFZ_iEazX8IVrwf9xctM1q41E/exec" 
+            allowfullscreen="true"
+            allow="geolocation; microphone; camera; display-capture"
+            title="Signature System">
+        </iframe>
+    </div>
 
 </body>
 </html>
