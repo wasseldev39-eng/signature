@@ -2,77 +2,65 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>نظام التوقيع</title>
-    
-    <link rel="preconnect" href="https://script.google.com">
-    <link rel="preconnect" href="https://script.googleusercontent.com">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام الإشتراك الذكي</title>
     <style>
-        :root { --primary-color: #6a1b9a; }
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: #fff; }
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .icon {
+            font-size: 50px;
+            color: #6a1b9a;
+            margin-bottom: 20px;
+        }
+        h2 { color: #333; margin-bottom: 10px; }
+        p { color: #666; margin-bottom: 25px; line-height: 1.6; }
         
-        .container { position: relative; width: 100%; height: 100%; }
-
-        /* إطار التحميل الذكي */
-        iframe {
-            width: 100%; height: 100%; border: none;
-            opacity: 0; /* مخفي في البداية لتجنب وميض اللون الأبيض */
-            transition: opacity 0.5s ease-in-out;
-            z-index: 2;
+        .btn-launch {
+            background-color: #6a1b9a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
         }
-
-        /* شاشة التحميل السريعة */
-        .loader-wrapper {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: #ffffff; z-index: 1;
-        }
-
-        .progress-bar {
-            width: 150px; height: 4px; background: #eee;
-            border-radius: 10px; overflow: hidden; margin-top: 15px;
-        }
-
-        .progress-line {
-            width: 0%; height: 100%; background: var(--primary-color);
-            animation: load 2s infinite ease-in-out;
-        }
-
-        @keyframes load {
-            0% { width: 0%; transform: translateX(-100%); }
-            50% { width: 70%; }
-            100% { width: 100%; transform: translateX(100%); }
+        .btn-launch:hover {
+            background-color: #4a148c;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div id="loader" class="loader-wrapper">
-            <div class="progress-bar"><div class="progress-line"></div></div>
-            <p style="font-family: sans-serif; color: #666; font-size: 14px;">جاري الاتصال بالنظام...</p>
-        </div>
-        
-        <iframe 
-            id="sigFrame"
-            src="https://script.google.com/macros/s/AKfycbywgNlocVmrtJog7qEtOCp3IhbF-oWclUFeQmbyOQORFZ_iEazX8IVrwf9xctM1q41E/exec" 
-            allow="camera; display-capture"
-            onload="showIframe()">
-        </iframe>
-    </div>
+<div class="card">
+    <div class="icon">✍️</div>
+    <h2>نظام التوقيع الرقمي</h2>
+    <p>لضمان الأمان وتفعيل الكاميرا بشكل صحيح، يرجى الضغط على الزر أدناه لفتح واجهة التوقيع.</p>
+    
+    <a href="https://script.google.com/macros/s/AKfycbywgNlocVmrtJog7qEtOCp3IhbF-oWclUFeQmbyOQORFZ_iEazX8IVrwf9xctM1q41E/exec" 
+       target="_blank" 
+       class="btn-launch">
+        فتح نظام التوقيع الآن
+    </a>
+</div>
 
-    <script>
-        // وظيفة لإظهار الإطار فور اكتمال تحميله داخلياً
-        function showIframe() {
-            const iframe = document.getElementById('sigFrame');
-            const loader = document.getElementById('loader');
-            iframe.style.opacity = '1';
-            // إزالة شاشة التحميل بعد 500ms من ظهور المحتوى لضمان السلاسة
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
-        }
-    </script>
 </body>
 </html>
